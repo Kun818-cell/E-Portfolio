@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundan Singh Mehta - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        section {
+            padding: 120px 5% 100px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        
+        #home img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        #home p {
+            font-size: 1.8rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+        
+        #about .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        #about .content {
+            flex: 1;
+        }
+        
+        /* Video Section */
+        #video {
+            background-color: #f1f5f9;
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Skills Section */
+        #skills {
+            background-color: white;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: #3498db;
+            color: white;
+        }
+        
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .skill-card:hover i {
+            color: white;
+        }
+        
+        /* Certificates Section */
+        #certificates {
+            background-color: #f1f5f9;
+        }
+        
+        .certificate-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certificate-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .certificate-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Projects Section */
+        #projects {
+            background-color: white;
+        }
+        
+        .project-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .project-item p {
+            margin-bottom: 20px;
+        }
+        
+        .project-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Assignments Section */
+        #assignments {
+            background-color: #f1f5f9;
+        }
+        
+        .assignment-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .assignment-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .assignment-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .assignment-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .contact-icon:hover {
+            transform: translateY(-10px);
+            background: #3498db;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            #about .container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            #home p {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 100px 5% 80px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            #home h1 {
+                font-size: 2.5rem;
+            }
+            
+            #home p {
+                font-size: 1.3rem;
+            }
+            
+            .contact-icons {
+                gap: 20px;
+            }
+            
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            #home h1 {
+                font-size: 2rem;
+            }
+            
+            #home p {
+                font-size: 1.2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#home" class="logo">Kundan<span>Mehta</span></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#video">Video</a>
+            <a href="#skills">Skills</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#projects">Projects</a>
+            <a href="#assignments">Assignments</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <img src="k.jpg" alt="Kundan Singh Mehta">
+        <h1>Kundan Singh Mehta</h1>
+        <p>Aspiring Web, Software and game developer</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <div class="content">
+                <h2>About Me</h2>
+                <p>I’m a B.Tech CSE student and an aspiring software, web, and game designer who is continuously learning and exploring new technologies. I’m passionate about developing interactive, user-friendly, and visually engaging software solutions and digital experiences. As I grow my skills in software development, web design, and game creation, I enjoy combining creativity and technology to turn innovative ideas into meaningful and enjoyable projects.</p>
+                <a href="#projects" class="btn">View My Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Self Introduction Video Section -->
+    <section id="video">
+        <div class="container">
+            <h2 class="section-title">Self Introduction Video</h2>
+            <div class="video-container">
+                <iframe src="self_intro_video.mp4" title="Self Introduction Video" allowfullscreen controls></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>C Programming</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python Programming</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Data Structure</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-object-group"></i>
+                    <h3>Object Oriented Programming</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Web Development</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificate-item">
+                <h3>Data Science For Engineers</h3>
+                <p>A comprehensive course on data science by NPTEL</p>
+                <a href="https://drive.google.com/file/d/16xOWKyHDGS-mzKMGTlNDSZGWvJ8GFGya/view?usp=drivesdk" target="_blank">View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-item">
+                <h3>Online Auction System in C</h3>
+                <p>A terminal based online auction system created using C programming language which let's users add and bid on items</p>
+                <a href="https://github.com/Kun818-cell/OnlineAuctionSystem" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-item">
+                <h3>Medischedular App in Python</h3>
+                <p>A python based medicinal reminder app for the elderly.</p>
+                <a href="https://github.com/Kun818-cell/MediSchedular" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments">
+        <div class="container">
+            <h2 class="section-title">Assignments</h2>
+            <div class="assignment-item">
+                <h3>LinkedIn Profile</h3>
+                <p>Professional profile showcasing my skills and experience.</p>
+                <a href="https://www.linkedin.com/in/kundan-sing-mehta-384822337" target="_blank">View LinkedIn Profile</a>
+            </div>
+            <div class="assignment-item">
+                <h3>Group Presentation PPT</h3>
+                <p>Collaborative presentation on a technical topic.</p>
+                <a href="https://drive.google.com/file/d/1i-awydNaa0N3zr5qUODMQQMJ58kmhJv9/view?usp=drivesdk" target="_blank">View Presentation</a>
+            </div>
+            <div class="assignment-item">
+                <h3>PESE Handwriting Assignment</h3>
+                <p>Handwritten assignment on PESE course material.</p>
+                <a href="#" target="_blank">View Assignment (Coming Soon)</a>
+            </div>
+            <div class="assignment-item">
+                <h3>50 Learning from PESE Labs</h3>
+                <p>Collection of key learnings from PESE laboratory sessions.</p>
+                <a href="#" target="_blank">View Learnings (Coming Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p>Let's connect and discuss potential opportunities!</p>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/kundan-sing-mehta-384822337" class="contact-icon" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Kun818-cell" class="contact-icon" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:kmehta56789@gmail.com" class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Kundan Singh Mehta. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
